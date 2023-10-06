@@ -49,7 +49,7 @@ function getHumanFriendlyDuration({ seconds }: { seconds: number }) {
     .value();
 }
 
-function getPasswordCrackTimeEstimation({ password, guessesPerSecond = 1e9 }: { password: string; guessesPerSecond?: number }) {
+function getPasswordCrackTimeEstimation({ password, guessesPerSecond = 1e12 }: { password: string; guessesPerSecond?: number }) {
   const charsetLength = getCharsetLength({ password });
   const passwordLength = password.length;
 
@@ -89,7 +89,7 @@ function getCharsetLength({ password }: { password: string }) {
     charsetLength += 10;
   }
   if (hasSpecialChars) {
-    charsetLength += 32;
+    charsetLength += 8;
   }
 
   return charsetLength;
